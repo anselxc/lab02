@@ -1,0 +1,114 @@
+const byte LEDs[] = {7,8,9,10,11,12,13,14};
+const byte total = sizeof(LEDs);
+byte index = 0;
+
+
+void setup()
+{
+  for (byte  i=0;i<total;i++) {
+  pinMode(LEDs[i], OUTPUT);
+  }
+  pinMode(6,INPUT);
+}
+
+void loop()
+{
+  boolean x=digitalRead(6);
+  if(x)
+  {
+    for (int  i=0;i<total;i++) 
+{
+digitalWrite(LEDs[i], LOW);
+}
+  delay(500);
+for (int  i=0;i<total;i++) 
+{
+digitalWrite(LEDs[i], HIGH);
+}
+  delay(500);
+for (int  i=0;i<total;i++) 
+{
+digitalWrite(LEDs[i], LOW);
+}
+  delay(500);
+for (int  i=0;i<total;i++) 
+{
+digitalWrite(LEDs[i], HIGH);
+}
+  delay(500);
+  for(int b=0;b<8;b++)
+  {
+  for(index=0;index<=8;index++)
+    {
+      for (int i=0;i<total;i++) 
+      {
+    digitalWrite(LEDs[i], LOW);
+    }
+    digitalWrite(LEDs[index], HIGH);
+      delay(100);
+      }
+    }
+for (int  i=0;i<total;i++) 
+{
+digitalWrite(LEDs[i], LOW);
+}
+  delay(500);
+for (int  i=0;i<total;i++) 
+{
+digitalWrite(LEDs[i], HIGH);
+}
+  delay(500);
+for (int  i=0;i<total;i++) 
+{
+digitalWrite(LEDs[i], LOW);
+}
+  delay(500);
+for (int  i=0;i<total;i++) 
+{
+digitalWrite(LEDs[i], HIGH);
+}
+  delay(500);
+for(int c=0;c<8;c++){
+  for(index=8;index>0;index--)
+    {
+      
+      for (int i=0;i<total;i++) 
+      {
+    digitalWrite(LEDs[i], LOW);
+    }
+    digitalWrite(LEDs[index], HIGH);
+      if(index<=7)
+      {
+        delay(100);
+      }
+    }
+    }
+  delay(100);
+  }
+  else
+  {
+  for (byte  i=0;i<total;i++) 
+    {
+  digitalWrite(LEDs[i], LOW);
+  }
+  digitalWrite(LEDs[index], HIGH);
+  if (index < total)
+    {
+  index++;
+  } 
+  else
+  {
+  for(index;index>=1;index--)
+    {
+      for (int i=0;i<total;i++) 
+      {
+    digitalWrite(LEDs[i], LOW);
+    }
+    digitalWrite(LEDs[index], HIGH);
+        if(index>=2)
+        delay(100);
+    }
+    }
+  delay(100);
+  }
+}
